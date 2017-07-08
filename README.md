@@ -1,6 +1,6 @@
 # togolist
 
-> A travel oriented todo list
+> A simple travel oriented todo list build with Vuejs, Buefy and Leaflet.
 
 ## Build Setup
 
