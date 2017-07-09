@@ -28,8 +28,8 @@ module.exports = (function () {
       'Imagery © <a href="http://mapbox.com">Mapbox</a>',
       id: 'mapbox.streets'
     }).addTo(map)
-    map.invalidateSize();
-    map.getSize();
+    map.invalidateSize()
+    map.getSize()
   }
 
   module.createMarker = function (latlng, done) {
@@ -51,7 +51,7 @@ module.exports = (function () {
   }
 
   module.centerElement = function (latlng) {
-    map.panTo(latlng);
+    map.panTo(latlng)
   }
 
   return module

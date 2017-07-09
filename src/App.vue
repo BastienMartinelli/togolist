@@ -48,11 +48,12 @@ body {
   height: 100%;
 }
 
-.app {
-  height: 100%!important;
+#app {
+  height: 100% !important;
 }
 
 .nav {
+  position: fixed !important; top: 0; left: 0; right: 0;
   z-index: 10;
 }
 

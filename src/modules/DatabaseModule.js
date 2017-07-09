@@ -5,7 +5,6 @@ module.exports = (function () {
 
   const toGoRef = firebase.database().ref('togo')
   const db = firebase.database()
-  const flagsRef = firebase.database().ref('flags')
 
   module.addToGo = function (togo) {
     return toGoRef.push(togo)

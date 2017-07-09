@@ -1,29 +1,20 @@
 <template>
-  <div class="board">
+  <div class="board full-height">
     <div class="section full-height">
-      <div class="columns">
+      <div class="columns full-height">
   
         <aside class="column is-grad is-3 hero">
   
           <div class='wrapper'>
-            <div class="head">
-              <div class="options">
-                <a @click="promptAddCountry">
-                  <i class="fa fa-plus-circle" aria-hidden="true"></i>
-                </a>
-              </div>
-              <br>
-            </div>
             <br>
-  
             <b-tabs type="is-toggle" expanded>
-              <b-tab-item v-bind:label="togoLabel" >
-  
-                <b-field>
-                  <p class="control">
-                    <b-input v-model="togoFilter" placeholder="Search..." type="search" icon="search">
-                    </b-input>
-                  </p>
+              <b-tab-item v-bind:label="togoLabel">
+                <b-field grouped class="togo-filter">
+                  <b-input v-model="togoFilter" placeholder="Filter..." type="search" icon="search">
+                  </b-input>
+                  <button class="button is-primary is-inverted" @click="promptAddCountry">
+                    <b-icon icon="fa fa-plus-circle"></b-icon>
+                  </button>
                 </b-field>
   
                 <div class="togo-container">
@@ -48,7 +39,7 @@
               <b-tab-item v-bind:label="goneLabel">
                 <b-field>
                   <p class="control">
-                    <b-input v-model="goneFilter" placeholder="Search..." type="search" icon="search">
+                    <b-input v-model="goneFilter" placeholder="Filter..." type="search" icon="search">
                     </b-input>
                   </p>
                 </b-field>
@@ -57,7 +48,7 @@
   
                   <div class="card togo-card" v-for="item in goneList">
                     <div class="card-content">
-                      <div class="content"> 
+                      <div class="content">
                         <a v-on:click="centerToItem(item)">{{item.destination.address}}</a>
                         <br>
                         <small>Added on {{item.creationDate}}</small>
@@ -71,13 +62,13 @@
                 </div>
               </b-tab-item>
             </b-tabs>
+  
           </div>
         </aside>
   
         <div class="column map">
           <div id="map"></div>
         </div>
-  
       </div>
     </div>
   </div>
@@ -121,7 +112,7 @@ export default {
     /**
      * Show the detail of the given destination
      */
-    showDetail: function(item) {
+    showDetail: function (item) {
       window.open('http://google.com/search?q=' + item.destination.address)
     },
 
@@ -258,27 +249,20 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.column {
+.togo-filter {
+  margin-left: 20px;
+}
+
+.column.map {
   margin: 0px;
+  padding: 0px;
+  padding-top: 50px;
 }
 
 .full-height {
   height: 100%;
   padding: 0px;
-}
-
-.column.map {
-  padding-left: 0px;
-  padding-right: 0px;
-}
-
-.togo-container {
-  height: 485px;
-  overflow-y: scroll;
-}
-
-.wrapper {
-  margin: 30px;
+  margin: 0px;
 }
 
 aside {
@@ -287,16 +271,22 @@ aside {
   z-index: 1;
 }
 
-.is-grad .head .options {
-  display: inline-block;
-  float: right;
-  padding-top: 7px;
-  color: lightgrey;
+.wrapper {
+  margin: 30px;
+  margin-top: 60px;
+}
+
+.togo-container {
+  height: 485px;
+  overflow-y: scroll;
 }
 
 .togo-card {
   margin: 15px;
 }
+
+
+
 
 /**
  * Leaflet Map
